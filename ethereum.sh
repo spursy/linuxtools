@@ -39,6 +39,7 @@ sudo rm -rf go-ethereum-master/
 cd go-ethereum/
 
 echo "Start to compile"
+source ~/.bashrc
 sudo env "PATH=$PATH" make geth
 echo "Start Ethereum point"
 sudo mkdir ../data && sudo mkdir ../log && sudo touch ../log/eth.log
