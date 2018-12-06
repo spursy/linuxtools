@@ -16,15 +16,16 @@ cd /data
 
 echo "install build tools"
 sudo apt-get update && sudo apt-get -y upgrade
-sudo apt-get install -y build-essential unzip tar
+sudo apt-get install -y build-essential unzip tar curl wget
 sudo curl -O https://dl.google.com/go/go1.11.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.11.2.linux-amd64.tar.gz
 sudo rm -rf go1.11.2.linux-amd64.tar.gz
 
 sudo mkdir go/ && sudo mkdir go/src/
-sudo echo "export GOPATH=/data/go" >> ~/.bashrc
-sudo echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
-source ~/.bashrc
+sudo chmod 777 /etc/profile
+sudo echo "export GOPATH=/data/go" >> /etc/profile
+sudo echo "export PATH=$PATH:/usr/local/go/bin" >> /etc/profile
+source /etc/profile
 
 
 #build
@@ -39,7 +40,6 @@ sudo rm -rf go-ethereum-master/
 cd go-ethereum/
 
 echo "Start to compile"
-source ~/.bashrc
 sudo env "PATH=$PATH" make geth
 echo "Start Ethereum point"
 sudo mkdir ../data && sudo mkdir ../log && sudo touch ../log/eth.log
