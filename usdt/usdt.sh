@@ -1,16 +1,16 @@
 #!/bin/sh
 set -e
 
-echo "127.0.0.1 `cat /etc/hostname`" | sudo tee -a /etc/hosts
+echo "127.0.0.1 `cat /etc/hostname`" |  tee -a /etc/hosts
 
 echo "start to mount data block"
 lsblk
 #first
-sudo mkfs -t ext4 /dev/xvdg
-sudo cp /etc/fstab /etc/fstab.orig
-echo '/dev/xvdg       /data   ext4    defaults,nofail       0  2' |sudo tee -a /etc/fstab
-sudo mkdir /data
-sudo mount -a
+mkfs -t ext4 /dev/xvdg
+cp /etc/fstab /etc/fstab.orig
+echo '/dev/xvdg       /data   ext4    defaults,nofail       0  2' |  tee -a /etc/fstab
+mkdir /data
+mount -a
 cd /data
 
 #first

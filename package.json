@@ -1,0 +1,19 @@
+{
+  "name": "linuxtools",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "eslint *.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spursy/linuxtools.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spursy/linuxtools/issues"
+  },
+  "homepage": "https://github.com/spursy/linuxtools#readme",
+  "description": ""
+}
