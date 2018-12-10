@@ -8,19 +8,25 @@ lsblk
 #first
 mkfs -t ext4 /dev/xvdg
 cp /etc/fstab /etc/fstab.orig
-echo '/dev/xvdg       /data   ext4    defaults,nofail       0  2' |  tee -a /etc/fstab
+echo '/dev/xvdg       /data   ext4    defaults,nofail       0  2' | tee -a /etc/fstab
 mkdir /data
 mount -a
 cd /data
 
+
 #first
 echo "install build tools"
-apt-get update && apt-get install -y
- build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils libboost-all-dev unzip wget
+apt-get update && apt-get install -y build-essential libtool autotools-dev  autoconf libgmp3-dev automake pkg-config libssl-dev libevent-dev bsdmainutils unzip wget
 
 echo "install BerkeleyDB"
 apt-get install software-properties-common && add-apt-repository ppa:bitcoin/bitcoin
 apt-get update && apt-get install libdb4.8-dev libdb4.8++-dev
+
+echo "install libboost-all-dev"
+add-apt-repository universe
+apt-get update
+apt-get install libboost-all-dev
+# apt-get install libevent-dev
 
 #second
 mkdir usdt && cd usdt
