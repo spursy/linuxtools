@@ -12,19 +12,19 @@ mount -a
 cd /data
 
 echo "install nodejs"
-apt-get update && apt-get install curl 
+apt-get update && apt-get install -y curl 
 curl -sL https://deb.nodesource.com/setup_8.x -o ~/nodesource_setup.sh
 bash ~/nodesource_setup.sh
-apt-get install nodejs
+apt-get install -y nodejs
 
 echo "install build tools"
-apt-get install libtool pkg-config build-essential autoconf automake 
+apt-get install -y libtool pkg-config build-essential autoconf automake 
 npm install -g node-gyp
 
 add-apt-repository ppa:chris-lea/zeromq
 add-apt-repository ppa:chris-lea/libpgm
 apt-get update
-apt-get install libzmq3-dev
+apt-get install -y libzmq3-dev
 
 echo "install bitcore"
 npm install -g --unsafe-perm=true bitcore@latest
@@ -37,3 +37,5 @@ bitcore install insight-ui
 
 echo "bitcore start"
 bitcore start  
+
+
